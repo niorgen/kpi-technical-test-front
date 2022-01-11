@@ -14,7 +14,7 @@ export class AppComponent {
 
 
   loadInvestments(){
-    this.http.get('/api/investment').subscribe((res)=>{
+    this.http.get<[]>('/api/investment').subscribe((res)=>{
       console.log(res)
     })
   }
