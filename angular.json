@@ -19,7 +19,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {
+          "options": { 
             "outputPath": "dist/kpi-technical-front",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -70,6 +70,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options":{
+            "proxyConfig":"src/proxy.conf.json",
+
+          },
           "configurations": {
             "production": {
               "browserTarget": "kpi-technical-front:build:production"

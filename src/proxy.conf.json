@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target":"https://kpi-tech-test.herokuapp.com",
+        "secure":false,
+        "logLevel": "debug"
+    }
+}
