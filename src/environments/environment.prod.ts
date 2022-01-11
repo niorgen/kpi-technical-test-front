@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl:'https://kpi-tech-test.herokuapp.com'
+  apiUrl:'https://kpi-technical-test-back.herokuapp.com'
 };
