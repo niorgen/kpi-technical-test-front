@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kpi-technical-front';
+  constructor(private http:HttpClient){
+    this.loadInvestments()
+  }
+
+
+  loadInvestments(){
+    this.http.get('https://kpi-tech-test.herokuapp.com/investment').subscribe((res)=>{
+      console.log(res)
+    })
+  }
 }
