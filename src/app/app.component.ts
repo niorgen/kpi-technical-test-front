@@ -14,7 +14,8 @@ export class AppComponent {
 
 
   loadInvestments(){
-    this.http.get<[]>('/api/investment/').subscribe((res)=>{
+    this.http.get('https://kpi-technical-test-back.herokuapp.com/api/investment/').subscribe((res)=>{
+      console.log('end of subscribe')
       console.log(res)
     })
   }

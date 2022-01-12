@@ -1,8 +1,8 @@
 {
-    "/api/*":{
-        "target":"https://kpi-technical-test-back.herokuapp.com",
-        "secure":false,
+    "/api": {
+        "target": "https://kpi-technical-test-back.herokuapp.com",
+        "secure": false,
         "logLevel": "debug",
-        "changeOrigin":true
+        "pathRewrite": {"^/api" : ""}
     }
 }
