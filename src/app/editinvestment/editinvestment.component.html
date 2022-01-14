@@ -1,0 +1,93 @@
+<div class='row' id="backform">
+    <div class=" col-lg-10 col-lg-offset-2" style="float:none;margin:auto;">
+        <div class="container-fluid" >
+            <h1>Edition</h1>
+            <form #signupForm="ngForm" (ngSubmit)="modifyInvestment(signupForm.value)">
+                <h1>{{investment.ville}} <br />{{investment.getOperationTitle()}}</h1>
+                <hr />
+                <input class="form-control" name="id" type="hidden" value="{{investment.id}}"
+                    ngModel="{{investment.id}}">
+                <label for="titreoperation">Titre de l'opération</label>
+                <textarea class="form-control" name="titreoperation" type="text" maxlength="255" cols="50"
+                    ngModel="{{investment.titreoperation}}" rows="3" required>{{investment.titreoperation}}</textarea>
+
+                <label for="entreprise">Entreprise</label>
+                <textarea class="form-control" name="entreprise" type="text" maxlength="255" cols="50"
+                    ngModel="{{investment.entreprise}}" rows="3"  required>{{investment.entreprise}}</textarea>
+
+                <label for="annee_de_livraison">Année de livraison</label>
+                <input class="form-control" name="annee_de_livraison" type="date"
+                    value="{{investment.annee_de_livraison}}" ngModel="{{investment.annee_de_livraison}}">
+
+                <label for="ville">ville</label>
+                <textarea class="form-control" name="ville" type="text" maxlength="255" cols="50"
+                    ngModel="{{investment.ville}}" rows="3" required>{{investment.ville}}</textarea>
+
+                <label for="mandataire">mandataire</label>
+                <textarea class="form-control" name="mandataire" type="text" maxlength="255" cols="50"
+                    ngModel="{{investment.mandataire}}" rows="3">{{investment.mandataire}}</textarea>
+
+                <label for="ppi">Ppi</label>
+                <textarea class="form-control" name="ppi" type="text" maxlength="15" cols="20"
+                    ngModel="{{investment.ppi}}" rows="1">{{investment.ppi}}</textarea>
+
+                <label for="lycee">Lycee</label>
+                <textarea class="form-control" name="lycee" type="text" maxlength="50" cols="55"
+                    ngModel="{{investment.lycee}}" rows="2">{{investment.lycee}}</textarea>
+
+                <label for="notification_du_marche">Notification du marché</label>
+                <input class="form-control" name="notification_du_marche" type="date"
+                    ngModel="{{investment.notification_du_marche}}" value="{{investment.notification_du_marche}}">
+
+                <label for="codeuai">Code uai</label>
+                <textarea class="form-control" name="codeuai" type="text" maxlength="15" cols="20"
+                    ngModel="{{investment.codeuai}}" rows="1">{{investment.codeuai}}</textarea>
+
+                <label for="longitude">Longitude</label>
+                <textarea class="form-control" name="longitude" type="text" maxlength="20" cols="20"
+                    ngModel="{{investment.longitude}}" rows="1">{{investment.longitude}}</textarea>
+
+                <label for="latitude">Latitude</label>
+                <textarea class="form-control" name="codeuai" type="text" maxlength="20" cols="20"
+                    ngModel="{{investment.latitude}}" rows="1">{{investment.latitude}}</textarea>
+
+                <label for='etat_d_avancement'>Etat d'avancement</label>
+                <select name="etat_d_avancement" class="form-control" [(ngModel)]="investment.etat_d_avancement">
+                    <option *ngFor="let state of states" [ngValue]="state.id">{{state.name}}</option>
+                </select>
+
+                <label for="montant_des_ap_votes_en_meu">Montant des Ap</label>
+                <input class="form-control" name="montant_des_ap_votes_en_meu" type="text"
+                    ngModel="{{investment.montant_des_ap_votes_en_meu}}">
+
+                <label for="cao_attribution">CAO Attribution</label>
+                <input class="form-control" name="cao_attribution" type="date" value="{{investment.cao_attribution}}"
+                    ngModel="{{investment.cao_attribution}}">
+
+                <label for="maitrise_d_oeuvre">Maitrise d'Oeuvre</label>
+                <textarea class="form-control" name="maitrise_d_oeuvre" type="text" maxlength="255" cols="50"
+                    ngModel="{{investment.maitrise_d_oeuvre}}" rows="3">{{investment.maitrise_d_oeuvre}}</textarea>
+
+                <label for="mode_de_devolution">Mode de devolution</label>
+                <textarea class="form-control" name="mode_de_devolution" type="text" maxlength="255" cols="50"
+                    ngModel="{{investment.mode_de_devolution}}" rows="3">{{investment.mode_de_devolution}}</textarea>
+
+                <label for="annee_d_individualisation">Année d'individualisation</label>
+                <input class="form-control" name="annee_d_individualisation" type="date"
+                    ngModel="{{investment.annee_d_individualisation}}" value="{{investment.annee_d_individualisation}}">
+
+                <label for="enveloppe_prev_en_meu">Enveloppe Prévisionnelle</label>
+                <input class="form-control" name="enveloppe_prev_en_meu" type="text"
+                    ngModel="{{investment.enveloppe_prev_en_meu}}" value="{{investment.enveloppe_prev_en_meu}}">
+
+                <div class="row controls">
+                    <div class="col-md-12" style="float: right;">
+                        <button class="btn btn-danger" type="text" routerLink="/">Cancel</button>
+                        <button style="float:right" class="btn btn-success" type="submit">Save</button>
+                    </div>
+                    <p class="error-text" *ngIf="requiredField">Erreur : champ non rempli</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

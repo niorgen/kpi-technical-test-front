@@ -1,0 +1,57 @@
+<div class="container-fluid main-container">
+    <div class="content" role="main">
+        <h1>Investment List :</h1>
+        <button type="button" class="btn btn-secondary" (click)="updateInvestmentsView()">Refresh list</button>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 row">
+                <table class="table investment-list table-striped table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th class="left">Titre</th>
+                            <th>Location
+                                <select #city (change)="filterByCity(city.value)">
+                                    <option value="All">All</option>
+                                    <option *ngFor="let city of cityList" [value]="city">{{city}}
+                                    </option>
+                                </select>
+                            </th>
+                            <th>Lycée</th>
+                            <th>Status
+                                <select #status (change)="filterByStatus(status.value)">
+                                    <option value="-1">All</option>
+                                    <option *ngFor="let type of investmentState" [value]="type.id">{{type.name}}
+                                    </option>
+                                </select>
+                            </th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let investment of investmentsTab;">
+                            <td>{{investment['id']}}</td>
+                            <td class="left">{{investment.getOperationTitle()}}</td>
+                            <td>{{investment.ville}}</td>
+                            <td>{{investment.lycee}}</td>
+                            <td class="state-{{investment.etat_d_avancement}}">
+                                {{getTypeById(investment.etat_d_avancement)}}
+                            </td>
+                            <td>
+                                <button class="btn btn-success" routerLink="/edit/{{investment.id}}">Edit</button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="investmentsTab.length == 0">
+                            <td>No entry</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+</div>
